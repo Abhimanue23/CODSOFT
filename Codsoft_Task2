@@ -1,0 +1,48 @@
+def add(x,y):
+    print("Sum of the given numbers are : ",x+y)
+    main()
+def subtract(x,y):
+    print("Subtraction of the given numbers are : ",x-y)
+    main()
+def multiply(x,y):
+    print("Multiplication of the given numbers are : ",x*y)
+    main()
+def divide(x,y):
+    if y == 0:
+        print("Error occurred!!")
+        main()
+    else:
+        print("Sum of the given numbers are : ",x/y)
+        main()
+print("!!!!!SIMPLE CALCULATOR!!!!!")
+def calculator():
+    print("Select operation")
+    print("Press 1 to Add")
+    print("Press 2 to Subtract")
+    print("Press 3 to Multiply")
+    print("Press 4 to Divide")
+
+    a=int(input("Enter your choice (1/2/3/4): "))
+    n1=float(input("Enter first number: "))
+    n2=float(input("Enter second number: "))
+    if a==1:
+        add(n1,n2)
+    elif a==2:
+        subtract(n1,n2)
+    elif a==3:
+        multiply(n1,n2)
+    elif a==4:
+        divide(n1,n2)
+    else:
+        print("Check your input!!")
+    
+def main():
+    b=int(input("Do you want to continue calculating?(press 1 if yes and 2 if no):"))
+    if b==1:
+        calculator()
+    elif b==2:
+        print("Thank You")
+    else:
+        print("Check your input!!")
+        main()
+  calculator()
