@@ -1,0 +1,34 @@
+import random
+import string
+
+print("!!!!!Password Generator!!!!!")
+
+def pass_():
+    length=int(input("Enter password length: "))
+    if length<4:
+        print("Password length should be at least 4.")
+        pass_()
+        
+    lower=input("Do you want to include lowercase letters?(yes/no): ").lower()
+    upper=input("Do you want to include uppercase letters?(yes/no): ").lower()
+    digits=input("Do you want to include numbers?(yes/no): ").lower()
+    symbols=input("Do you want to include symbols?(yes/no): ").lower()
+
+    p=''
+    if lower=='yes':
+        p+=string.ascii_lowercase
+    if upper=='yes':
+        p+=string.ascii_uppercase
+    if digits=='yes':
+        p+=string.digits
+    if symbols=='yes':
+        p+=string.punctuation
+
+    if  p=='':
+        print("Select at least one character")
+        return
+        
+    password=''.join(random.choices(p,k=length))
+    print("Generated password :",password)
+
+pass_()
