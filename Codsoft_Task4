@@ -1,0 +1,71 @@
+import random
+
+print("!!!!!Let's play Rock-Paper-Scissors!!!!!")
+
+def userchoice():
+    a = input("Choose rock, paper, or scissors: ").lower()
+    if a in ["rock", "paper", "scissors"]:
+        return a
+    else:
+        print("Check your input!!")
+
+def computerchoice():
+    return random.choice(["rock", "paper", "scissors"])
+
+def winner(user,computer):
+    if user==computer:
+        return "tie"
+    elif (
+        (user == "rock" and computer == "scissors") or
+        (user == "paper" and computer == "rock") or
+        (user == "scissors" and computer == "paper")
+    ):
+        return "user"
+    else:
+        return "computer"
+
+def play():
+    userscore=0
+    computerscore=0
+    roundnum=1
+
+    while True:
+        print("\nRound ",roundnum)
+        user=userchoice()
+        computer=computerchoice()
+
+        print("You chose: ",user)
+        print("Computer chose: ",computer)
+
+        result=winner(user,computer)
+
+        if result=="user":
+            print("!! You won this round !!")
+            userscore+=1
+        elif result=="computer":
+            print("!! You lost this round !!")
+            computerscore+=1
+        else:
+            print("!!It's a tie!!")
+
+        print("Scores = You: ",userscore,"| Computer: ",computerscore)
+
+        again=input("\nDo you want to continue playing?(type yes to continue): ").lower()
+        if again!="yes":
+            break
+
+        roundnum += 1
+
+    print("\nFinal Scores")
+    print("You: ",userscore," & Computer: ",computerscore)
+
+    if userscore>computerscore:
+        print("!!Congratulations,you won!!")
+    elif userscore<computerscore:
+        print("!!Oops,better luck next time!!")
+    else:
+        print("!!It's a draw!!")
+
+    print("Thankyou for playing")
+
+play()
